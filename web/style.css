@@ -103,7 +103,7 @@ header div ul.mobile-menu {
     width: 100%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
     header ul {
         display: none;
         padding-left: 0px;
