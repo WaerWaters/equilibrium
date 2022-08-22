@@ -39,6 +39,7 @@ header ul {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 20px;
 }
 
 header ul li {
@@ -114,6 +115,20 @@ header div ul.mobile-menu {
         width: 100%;
         margin-left: 0px;
         text-align: center;
+    }
+
+    header ul li a {
+        color: #1c0522;
+    }
+
+    header ul li a.active {
+        background: #1c0522;
+        color: #fff;
+    }
+
+    header ul li a:hover {
+        background: #1c0522;
+        color: #fff;
     }
 
     #hamburger-icon {
