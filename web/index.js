@@ -3,6 +3,7 @@ function toggleMobileMenu(menu) {
     menu.classList.toggle('open');
 }
 
+
 // Header animations
 let stars = document.getElementById('stars')
 let moon = document.getElementById('moon')
@@ -23,3 +24,40 @@ window.addEventListener('scroll', function() {
     btn.style.marginTop = value + 'px';
     header.style.top = value * 0.7 + 'px';
 })
+
+
+// API Data
+let floorPrice = document.getElementById('floor_price')
+
+getFloorPrice().then(data => floorPrice.textContent = "floor price for " + "TBD" + ": " + data.floor_price/1000000 + " ADA")
+
+async function getFloorPrice() {
+    let response = await fetch('https://api.opencnft.io/1/policy/d79181749db228d10c98501a7e1728585780bcf133b7b3df953a9017/floor_price');
+    let data = await response.json()
+    return data
+}
+/*async function getCollectionName() {
+    let response = await fetch('https://api.opencnft.io/1/policy/d79181749db228d10c98501a7e1728585780bcf133b7b3df953a9017/floor_price');
+    let data = await response.json()
+    return data
+}*/
+
+
+// Nami wallet connect
+let namiWallet = document.getElementById('nami_wallet')
+
+async function namiLogin() {
+    
+    let api = await cardano.nami.enable()
+    let connectedCheck = await cardano.nami.isEnabled()
+    if (connectedCheck != true) {
+        namiWallet.textContent = 'failed'
+    } else {
+        console.log(await api.getBalance())
+        //namiWallet.textContent = cardano.nami.enable().getBalance()
+    }
+}
+
+
+
+
